@@ -15,40 +15,116 @@
 <body>
 <p class="p1">&lt;html&gt;</p>
 <p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;script src="http://cdn.gigya.com/JS/socialize.js?apiKey=2_Y82PzwJ_chSFImHXaIDJClnLyJzmk-VFOavSsaNTzl6m901s_NNxRAS0xJ3bd3_N"<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-tab-span">	</span>type="text/javascript"&gt;&lt;/script&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1">&lt;h3&gt;Comments Plugin Demo&lt;/h3&gt;</p>
-<p class="p1">&lt;div id="commentsDiv"&gt;&lt;/div&gt;</p>
-<p class="p1">&lt;script type="text/javascript"&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span>&lt;SCRIPT type="text/javascript" lang="javascript"<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-tab-span">	</span> <span class="Apple-converted-space">  </span>src="http://cdn.gigya.com/JS/socialize.js?apikey=2_Y82PzwJ_chSFImHXaIDJClnLyJzmk-VFOavSsaNTzl6m901s_NNxRAS0xJ3bd3_N"&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span>&lt;/SCRIPT&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// This method is activated when the page is loaded</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function onLoad() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// register for login event</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gigya.socialize.addEventHandlers({</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>context: { str: 'congrats on your' }</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>, onLogin: onLoginHandler<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>, onLogout: onLogoutHandler</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>});</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-tab-span">	</span>// Optional - define templates to change graphic layout in the Comments Plugin<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-tab-span">	</span>var templates= {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>//comment: 'Hello!&lt;br&gt;username: $username&lt;br&gt;Photo Div: $photoDiv&lt;br&gt;Date String:$dateString&lt;br&gt;Body:$body&lt;br&gt;' +</p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>//<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>'Replies Count: $repliesCountPlaceholder&lt;br&gt;Reply Button:$replyButton',</p>
-<p class="p1"><span class="Apple-converted-space">        </span>//commentBox: 'Login Canvas: $loginCanvas&lt;br&gt;Close Icon:$closeIcon&lt;br&gt;Add Comment:$addComment',</p>
-<p class="p1"><span class="Apple-converted-space">        </span>//loginCanvas_loggedIn: '$photoDiv&lt;br&gt;$username&lt;br&gt;$logoutLink',</p>
-<p class="p1"><span class="Apple-converted-space">        </span>//loginCanvas_loggedIn_guest: 'guest! &lt;br&gt;$photoDiv&lt;br&gt;$username&lt;br&gt;$logoutLink',</p>
-<p class="p1"><span class="Apple-converted-space">        </span>//loginCanvas_loggedOut: 'out!&lt;br&gt;$photoDiv&lt;br&gt;$loginDropdown&lt;br&gt;$guestDropdown'</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><span class="Apple-tab-span">	</span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>var params =</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{</p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>// Required parameters:</p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>categoryID:7623701,</p>
-<p class="p1"><span class="Apple-converted-space">        </span>containerID: 'commentsDiv',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// onLogin Event handler</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function onLoginHandler(eventObj) {<span class="Apple-tab-span">	</span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>alert(eventObj.context.str + ' ' + eventObj.eventName + ' to ' + eventObj.provider<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>+ '!\n' + eventObj.provider + ' user ID: ' +<span class="Apple-converted-space">  </span>eventObj.user.identities[eventObj.provider].providerUID);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// verify the signature ...</p>
+<p class="p1"><span class="Apple-converted-space">            </span>verifyTheSignature(eventObj.UID, eventObj.timestamp, eventObj.signature);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Check whether the user is new by searching if eventObj.UID exists in your database</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var newUser = true; // lets assume the user is new</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (newUser) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 1. Register user<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 2. Store new user in DB</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// 3. link site account to social network identity</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// <span class="Apple-converted-space">  </span>3.1 first construct the linkAccounts parameters</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var dateStr = Math.round(new Date().getTime()/1000.0); // Current time in Unix format</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>//(i.e. the number of seconds since Jan. 1st 1970)</p>
+<p class="p2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>var siteUID = 'uTtCGqDTEtcZMGL08w'; // siteUID should be taken from the new user record</p>
+<p class="p1"><span class="Apple-converted-space">                                                   </span>// you have stored in your DB in the previous step</p>
+<p class="p1"><span class="Apple-converted-space">                </span>var yourSig = createSignature(siteUID, dateStr);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>var params = {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>siteUID: siteUID,<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>timestamp:dateStr,</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>cid:'',</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>signature:yourSig</p>
+<p class="p1"><span class="Apple-converted-space">                </span>};</p>
+<p class="p2"><span class="Apple-converted-space">                </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>// <span class="Apple-converted-space">  </span>3.1 call linkAccounts method:</p>
+<p class="p1"><span class="Apple-converted-space">                </span>gigya.socialize.notifyRegistration(params);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>document.getElementById('status').style.color = "green";</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>document.getElementById('status').innerHTML = "Status: You are now signed in";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Note: the actual signature calculation implementation should be on server side</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function createSignature(UID, timestamp) {</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>encodedUID = encodeURIComponent(UID); // encode the UID parameter before sending it to the server.</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>// On server side use decodeURIComponent() function to decode an encoded UID</p>
+<p class="p1"><span class="Apple-converted-space">            </span>return '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
 <p class="p2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>// Optional parameters:</p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>templates: templates,</p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>streamTitle: 'myTitle',</p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>streamID: 'foo6',</p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>deviceType: 'auto',</p>
-<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>cid: ''</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-tab-span">	</span>// Load the Comments Plugin</p>
-<p class="p1"><span class="Apple-converted-space">    </span>gigya.socialize.showCommentsUI(params);</p>
-<p class="p1">&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Note: the actual signature calculation implementation should be on server side</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function verifyTheSignature(UID, timestamp, signature) {</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>encodedUID = encodeURIComponent(UID); // encode the UID parameter before sending it to the server.</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>// On server side use decodeURIComponent() function to decode an encoded UID</p>
+<p class="p1"><span class="Apple-converted-space">            </span>alert('Your UID: ' + UID + '\n timestamp: ' + timestamp + '\n signature: ' + signature + '\n Your UID encoded: ' + encodedUID);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Logout from Gigya platform. This method is activated when "Logout" button is clicked<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>function logoutFromGS() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>gigya.services.socialize.logout(); // logout from Gigya platform</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>// onLogout Event handler</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function onLogoutHandler(eventObj) {</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>document.getElementById('status').style.color = "red";</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>document.getElementById('status').innerHTML = "Status: You are now signed out";</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>}</p>
+<p class="p2"><br></p>
+<p class="p2"><span class="Apple-converted-space">       </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body onload="onLoad()"&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span>&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span>&lt;h4&gt;Please sign in using one of the following providers:&lt;/h4&gt;&lt;br /&gt;&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span>&lt;div id="loginDiv"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span>&lt;script type="text/javascript"&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-converted-space">    </span>gigya.socialize.showLoginUI({<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>height: 85</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-converted-space">        </span>,width: 360</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>,showTermsLink:false // remove 'Terms' link</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>,hideGigyaLink:true // remove 'Gigya' link</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>,buttonsStyle: 'fullLogo' // Change the default buttons design to "Full Logos" design</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>,showWhatsThis: true // Pop-up a hint describing the Login Plugin, when the user rolls over the Gigya link.</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-converted-space">        </span>,containerID: 'loginDiv' // The component will embed itself inside the loginDiv Div<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>,cid:''</p>
+<p class="p1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>});</p>
+<p class="p1"><span class="Apple-tab-span">	</span>&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-tab-span">	</span>&lt;h4&gt;Click the button below to sign out from Gigya platform:&lt;/h4&gt;&lt;br /&gt;&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input id="btnLogout" type="button" value="Sign Out"<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>onclick="logoutFromGS()"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;br /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="status"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
 <p class="p1">&lt;/body&gt;</p>
 <p class="p1">&lt;/html&gt;</p>
 </body>
